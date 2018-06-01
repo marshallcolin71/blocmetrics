@@ -1,8 +1,8 @@
-@import "boostrap-sprockets";
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
-.username [
+.username {
   position: relative;
   display: block;
   padding: 10px 15px;
-]
+}

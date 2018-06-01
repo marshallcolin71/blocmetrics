@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
+
+
+  resources :home
+
+  resources :registered_apps
   devise_for :users
-  get 'home/index'
-  get 'home/about'
+
+  root 'home#index'
+
+  get 'about' => 'home#about'
+
 end
