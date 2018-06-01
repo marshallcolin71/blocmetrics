@@ -1,0 +1,16 @@
+<h1><%= @registeredapp.name %></h1>
+
+<div class="row">
+	<div class="col-md-8">
+		<h4>URL: <%= link_to @registeredapp.url, "http://#{@registeredapp.url}" %></h4>
+		<% @events.each do |event| %>
+			<p style="font-size:16px; color:blue;"><%= event.name %></p>
+		<% end %>
+		<p style="font-size:14px;"><%= @events.count %> events exist for this app </p>
+		<p style="font-size:12px;"> Added by <%= @registeredapp.user.email %></p>
+	</div>
+	<div class="col-md-4">
+		<%= link_to "Edit", edit_registeredapp_path, class: 'btn btn-success' %>
+		<%= link_to "Delete", [@registeredapp], method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this app from Blocmetrics?'} %>
+	</div>
+</div>

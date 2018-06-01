@@ -18,6 +18,7 @@ end
 
 def show
   @registeredapp = RegisteredApp.find(params[:id])
+  @events = @registeredapp.events.sort_by(&:name)
   unless @ registeredapp.user == current_user
     flash[:alert] = "You are not authorized to use this app"
     redirect_to root_path
@@ -52,6 +53,16 @@ def update
   end
 end
 
+<<<<<<< HEAD
+=======
+def destroy
+  @registeredapp = RegisteredApp.find(params[:id])
+  if @registeredapp.destroy
+    flash[:notice] = "\"#{@registeredapp.name}\" was deleted successfully."
+    redirect_to registeredapps_path
+end
+
+>>>>>>> register-apps
 private
 
 def registered_app_params
