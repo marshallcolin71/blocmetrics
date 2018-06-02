@@ -1,4 +1,4 @@
-class EventsControllerController < ApplicationController
+class API::EventsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
 	before_action :set_access_control_headers
@@ -10,7 +10,7 @@ class EventsControllerController < ApplicationController
 	end
 
 	def create
-		@registered_application = Registeredapp.find_by(url: request.env['HTTP_ORIGIN'])
+		@registered_application = RegisteredApp.find_by(url: request.env['HTTP_ORIGIN'])
 		unless @registered_application.present?
 			render json: "Unregistered application", status: :unprocessable_entity
 		end
